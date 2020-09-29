@@ -29,18 +29,15 @@ export default class ProductList extends React.Component {
   }
 
   render() {
-    const productList = [];
-    for (let i = 0; i < this.state.products.length; i++) {
-      productList.push(
-        <ProductListItem
-          key={this.state.products[i].productId}
-          image={this.state.products[i].image}
-          name={this.state.products[i].name}
-          price={this.state.products[i].price}
-          shortDescription={this.state.products[i].shortDescription}
-        />
-      );
-    }
+    const productList = this.state.products.map(element => {
+      return (<ProductListItem
+        key={element.productId}
+        image={element.image}
+        name={element.name}
+        price={element.price}
+        shortDescription={element.shortDescription}
+      />);
+    });
     return (
       <div className="container" style={{ marginTop: '2rem' }}>
         <div className="row">
