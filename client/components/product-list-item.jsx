@@ -1,11 +1,19 @@
 import React from 'react';
 
 export default class ProductListItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.props.setView('details', this.props.productId);
+  }
 
   render() {
     return (
       <div className="col card-col">
-        <div className="card product-card">
+        <div className="card product-card" onClick={this.handleClick}>
           <img src={this.props.image} className="card-img-top product-image" />
           <div className="card-body">
             <h5 className="card-title product-title">{this.props.name}</h5>
