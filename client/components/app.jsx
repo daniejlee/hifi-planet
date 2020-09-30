@@ -7,15 +7,18 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: 'null',
       view: {
         name: 'catalog',
         params: {}
       },
-      isLoading: true
+      cart: []
     };
 
     this.setView = this.setView.bind(this);
+  }
+
+  componentDidMount() {
+    this.getCartItems();
   }
 
   setView(name, params) {
@@ -25,6 +28,12 @@ export default class App extends React.Component {
         params: { productId: params }
       }
     });
+  }
+
+  getCartItems() {
+    fetch('/api/cart')
+      .then(result => {
+      });
   }
 
   render() {
@@ -40,7 +49,7 @@ export default class App extends React.Component {
 
     return (
       <div>
-        <Header />
+        <Header setView={this.setView}/>
         {currentPage}
       </div>
     );
