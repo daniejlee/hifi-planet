@@ -49,14 +49,13 @@ app.post('/api/cart', (req, res, next) => {
       from "products"
      where "productId" = $1
   `;
-
-  if (!req.body.productId) {
+  const productId = parseInt(req.body.productId, 10);
+  if (!req.body.productId || productId <= 0 || !Number.isInteger(productId)) {
     res.status(400).json({
       error: 'Invalid Entry'
     });
   } else {
-    const productId = [parseInt(req.body.productId, 10)];
-    db.query(sql, productId)
+    db.query(sql, [productId])
       .then(price => {
         if (!price.rows[0]) {
           throw (new ClientError(`product ${productId} does not exist`, 400));
@@ -90,7 +89,7 @@ app.post('/api/cart', (req, res, next) => {
           values ($1, $2, $3)
           returning "cartItemId"
         `;
-        const values = [parseInt(result.cartId, 10), productId[0], result.price];
+        const values = [parseInt(result.cartId, 10), productId, result.price];
         return db.query(cartItems, values);
       })
       .then(result => {
