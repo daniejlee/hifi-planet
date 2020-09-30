@@ -9,8 +9,14 @@ export default class Header extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    this.props.setView('catalog', {});
+  handleClick(event) {
+    switch (event.target.id) {
+      case 'home':
+        this.props.setView('catalog', {});
+        break;
+      case 'cart':
+        this.props.setView('cart', {});
+    }
   }
 
   render() {
@@ -18,10 +24,10 @@ export default class Header extends React.Component {
     return (
       <nav className="navbar navbar-dark bg-dark justify-content-between">
         <div className="container">
-          <a className="navbar-brand header" href="#" onClick={this.handleClick}>
+          <a className="navbar-brand header" id="home" href="#" onClick={this.handleClick}>
            $ Wicked Sales
           </a>
-          <div className="cart">
+          <div className="cart" id="cart" onClick={this.handleClick}>
             {items} Item{items === 1 ? '' : 's'}
             <i className="fas fa-shopping-cart ml-2"></i>
           </div>
