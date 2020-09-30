@@ -7,15 +7,19 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: 'null',
       view: {
         name: 'catalog',
         params: {}
       },
-      isLoading: true
+      cart: []
     };
 
     this.setView = this.setView.bind(this);
+    this.addToCart = this.addToCart.bind(this);
+  }
+
+  componentDidMount() {
+    this.getCartItems();
   }
 
   setView(name, params) {
@@ -27,6 +31,38 @@ export default class App extends React.Component {
     });
   }
 
+  getCartItems() {
+    fetch('/api/cart')
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          cart: data
+        });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
+  addToCart(product) {
+    fetch('/api/cart', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(product)
+    })
+      .then(response => response.json())
+      .then(data => {
+        const newCart = this.state.cart.slice();
+        newCart.push(data);
+        this.setState({ cart: newCart });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
   render() {
     let currentPage;
     switch (this.state.view.name) {
@@ -34,13 +70,12 @@ export default class App extends React.Component {
         currentPage = <ProductList setView={this.setView} />;
         break;
       case 'details':
-        currentPage = <ProductDetails params={this.state.view.params} setView={this.setView}/>;
+        currentPage = <ProductDetails params={this.state.view.params} addToCart={this.addToCart} setView={this.setView}/>;
         break;
     }
-
     return (
       <div>
-        <Header />
+        <Header setView={this.setView} cartItemCount={this.state.cart.length}/>
         {currentPage}
       </div>
     );

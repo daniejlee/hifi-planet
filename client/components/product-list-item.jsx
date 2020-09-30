@@ -12,7 +12,7 @@ export default class ProductListItem extends React.Component {
 
   render() {
     return (
-      <div className="col card-col">
+      <div className="col card-col mr-2">
         <div className="card product-card" onClick={this.handleClick}>
           <img src={this.props.image} className="card-img-top product-image" />
           <div className="card-body">
