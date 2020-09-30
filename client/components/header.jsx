@@ -14,7 +14,7 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const items = 1;
+    const items = this.props.cartItemCount;
     return (
       <nav className="navbar navbar-dark bg-dark justify-content-between">
         <div className="container">
