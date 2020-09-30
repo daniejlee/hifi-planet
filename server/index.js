@@ -144,6 +144,40 @@ app.get('/api/products/:productId', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.post('/api/orders', (req, res, next) => {
+  if (!req.session.cartId) {
+    res.status(400).json({
+      error: 'Cart does not exist'
+    });
+  } else {
+    const body = req.body;
+    if (!body.name || !body.creditCard || !body.shippingAddress) {
+      res.json({
+        error: 'Please enter valid information'
+      });
+    } else {
+      const sql = `
+        insert into "orders" ("cartId", "name", "creditCard", "shippingAddress")
+        values ($1, $2, $3, $4)
+        returning *
+      `;
+      const values = [req.session.cartId, body.name, body.creditCard, body.shippingAddress];
+      db.query(sql, values)
+        .then(result => {
+          if (result.rows[0]) {
+            delete req.session.cartId;
+            const placedOrder = Object.assign({}, result.rows[0]);
+            delete placedOrder.cartId;
+            res.status(201).json(placedOrder);
+          } else {
+            next(new ClientError('order failed', 404));
+          }
+        })
+        .catch(err => next(err));
+    }
+  }
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
