@@ -3,6 +3,7 @@ import Header from './header';
 import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
+import CheckoutForm from './checkout-form';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -17,6 +18,8 @@ export default class App extends React.Component {
 
     this.setView = this.setView.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.placeOrder = this.placeOrder.bind(this);
+    this.getTotal = this.getTotal.bind(this);
   }
 
   componentDidMount() {
@@ -64,6 +67,34 @@ export default class App extends React.Component {
       });
   }
 
+  placeOrder(order) {
+    fetch('/api/orders', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(order)
+    })
+      .catch(error => {
+        console.error(error);
+      });
+    this.setState({
+      view: {
+        name: 'catalog',
+        params: {}
+      },
+      cart: []
+    });
+  }
+
+  getTotal() {
+    if (this.state.cart.length > 0) {
+      const total = this.state.cart.reduce((total, element) => total + element.price
+        , 0);
+      return total;
+    }
+  }
+
   render() {
     let currentPage;
     switch (this.state.view.name) {
@@ -74,7 +105,10 @@ export default class App extends React.Component {
         currentPage = <ProductDetails params={this.state.view.params} addToCart={this.addToCart} setView={this.setView}/>;
         break;
       case 'cart':
-        currentPage = <CartSummary cart={this.state.cart} setView={this.setView}/>;
+        currentPage = <CartSummary cart={this.state.cart} getTotal={this.getTotal} setView={this.setView}/>;
+        break;
+      case 'checkout':
+        currentPage = <CheckoutForm setView={this.setView} placeOrder={this.placeOrder} getTotal={this.getTotal}/>;
         break;
     }
     return (

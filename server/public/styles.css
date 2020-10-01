@@ -45,3 +45,11 @@
   object-fit: contain;
   margin: 15px 0;
 }
+
+.checkout-total{
+  color: darkgray;
+}
+
+.form-group > label {
+  font-weight: 500;
+}
