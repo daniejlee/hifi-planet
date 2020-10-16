@@ -22,7 +22,7 @@ export default class Header extends React.Component {
       <nav className="navbar navbar-dark bg-dark justify-content-between">
         <div className="container">
           <a className="navbar-brand header" id="home" href="#" onClick={this.handleClick}>
-           $ Wicked Sales
+           $ Hi-Fi Planet
           </a>
           <div className="cart" id="cart" onClick={this.handleClick}>
             {items} Item{items === 1 ? '' : 's'}
