@@ -35,7 +35,7 @@ export default class ProductDetails extends React.Component {
     if (this.state.product) {
       const product = this.state.product;
       return (
-        <div className="container border mt-4 p-4">
+        <div className="container mt-4 p-4 detail-container">
           <div className="row ml-0" style={{ cursor: 'pointer' }} onClick={this.setView}>&lt; Back to Catalog</div>
           <div className="row mt-3">
             <div className="col-4">
