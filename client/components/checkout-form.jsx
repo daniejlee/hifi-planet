@@ -39,7 +39,7 @@ export default class CheckoutForm extends React.Component {
           <h1 className="mt-2">My Cart</h1>
         </div>
         <div className="row">
-          <h5 className="checkout-total my-3" key="cartTotal">Order Total <span >${(this.props.getTotal() / 100).toFixed(2)}</span></h5>
+          <h5 className="checkout-total my-3" key="cartTotal">Order Total <span >${(this.props.getTotal() / 100).toLocaleString()}</span></h5>
         </div>
 
         <form onSubmit={this.handleSubmit}>

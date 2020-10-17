@@ -20,14 +20,14 @@ export default class CartSummary extends React.Component {
 
   render() {
     const cart = this.props.cart;
-    const cartList = cart.map(cartItem => {
-      return (<CartSummaryItem key={cartItem.productId} cartItem={cartItem}/>);
+    const cartList = cart.map((cartItem, index) => {
+      return (<CartSummaryItem key={index} cartItem={cartItem}/>);
     });
     const itemTotal = (
-      <div key="footer" className="row justify-content-between mt-4">
+      <div key="footer" className="row justify-content-between mt-4 mb-5">
         <div className="col">
           <h5>Item Total
-            <span className="cart-total"> ${(this.props.getTotal() / 100).toFixed(2)}</span>
+            <span className="cart-total"> ${(this.props.getTotal() / 100).toLocaleString()}</span>
           </h5>
         </div>
         <div className="col text-right">
