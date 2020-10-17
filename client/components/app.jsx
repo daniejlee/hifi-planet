@@ -4,6 +4,7 @@ import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
 import CheckoutForm from './checkout-form';
+import HomeBanner from './home-banner';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -114,6 +115,7 @@ export default class App extends React.Component {
     return (
       <div>
         <Header setView={this.setView} cartItemCount={this.state.cart.length}/>
+        <HomeBanner />
         {currentPage}
       </div>
     );

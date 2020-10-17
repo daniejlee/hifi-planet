@@ -11,7 +11,7 @@ export default class CartSummaryItem extends React.Component {
         </div>
         <div className="col ml-5">
           <h2>{cartItem.name}</h2>
-          <div className="mt-2">${(cartItem.price / 100).toFixed(2)}</div>
+          <div className="mt-2">${(cartItem.price / 100).toLocaleString()}</div>
           <p className="mt-2">{cartItem.shortDescription}</p>
         </div>
       </div>

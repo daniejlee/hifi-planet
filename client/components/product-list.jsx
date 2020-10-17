@@ -43,7 +43,7 @@ export default class ProductList extends React.Component {
       );
     });
     return (
-      <div className="container mt-4">
+      <div className="container mt-4 product-list">
         <div className="row justify-content-center">
           {productList}
         </div>
