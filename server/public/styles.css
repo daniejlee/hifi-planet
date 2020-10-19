@@ -1,5 +1,5 @@
-body {
-  /* background-color: #242424; */
+* {
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .navcolor {
@@ -8,26 +8,26 @@ body {
 
 .product-card{
   margin-bottom: 1.5rem;
-  width: 260px;
-  height: 25rem;
+  width: 280px;
+  height: 440px;
   box-shadow: 1px 1px 5px grey;
   cursor: pointer;
 }
 
 .product-image {
-    margin-top: 5px;
-    width: 100%;
-    height: 210px;
-    object-fit: contain;
+  margin-top: 5px;
+  width: 100%;
+  height: 210px;
+  object-fit: contain;
 }
 
 .product-price{
   margin-bottom: .7vh;
-  font-size: .8rem;
+  font-size: .9rem;
 }
 
 .product-description{
-  font-size: .9rem;
+  font-size: 1rem;
 }
 
 .detail-container {

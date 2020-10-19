@@ -4,7 +4,7 @@ import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
 import CheckoutForm from './checkout-form';
-import HomeBanner from './home-banner';
+import Banner from './banner';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -100,7 +100,12 @@ export default class App extends React.Component {
     let currentPage;
     switch (this.state.view.name) {
       case 'catalog':
-        currentPage = <ProductList setView={this.setView} />;
+        currentPage = (
+          <React.Fragment>
+            <Banner />
+            <ProductList setView={this.setView} />
+          </React.Fragment>
+        );
         break;
       case 'details':
         currentPage = <ProductDetails params={this.state.view.params} addToCart={this.addToCart} setView={this.setView}/>;
@@ -115,7 +120,6 @@ export default class App extends React.Component {
     return (
       <div>
         <Header setView={this.setView} cartItemCount={this.state.cart.length}/>
-        <HomeBanner />
         {currentPage}
       </div>
     );
