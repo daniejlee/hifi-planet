@@ -20,9 +20,10 @@ export default class Header extends React.Component {
     const items = this.props.cartItemCount;
     return (
       <nav className="navbar navbar-dark navcolor justify-content-between py-1">
-        <a className="navbar-brand header" id="home" href="#" onClick={this.handleClick}>
-           Hi-Fi Planet
-        </a>
+        <div className="navbar-brand header" id="home" href="#" onClick={this.handleClick}>
+          <img src="images/logo.png" className="logo"/>
+          {' '} Hi-Fi Planet
+        </div>
         <div className="cart" id="cart" onClick={this.handleClick}>
           {items} Item{items === 1 ? '' : 's'}
           <i className="fas fa-shopping-cart ml-2"></i>
