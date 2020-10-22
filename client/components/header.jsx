@@ -20,7 +20,7 @@ export default class Header extends React.Component {
     const items = this.props.cartItemCount;
     return (
       <nav className="navbar navbar-dark navcolor justify-content-between py-1">
-        <div className="navbar-brand header" id="home" href="#" onClick={this.handleClick}>
+        <div className="navbar-brand header cursor-pointer" id="home" onClick={this.handleClick}>
           <img src="images/logo.png" className="logo"/>
           {' '} Hi-Fi Planet
         </div>
