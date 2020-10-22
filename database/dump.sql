@@ -260,6 +260,46 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 29	29	4	999
 30	30	3	2900
 31	30	2	2595
+32	31	4	999
+33	32	4	999
+34	32	4	999
+35	33	4	999
+36	34	4	999
+37	35	4	999
+38	36	4	999
+39	30	2	2595
+40	30	3	2900
+41	30	1	2999
+42	37	3	2900
+43	37	3	2900
+44	37	6	830
+45	38	3	2900
+46	38	6	830
+47	39	2	2595
+48	39	6	830
+49	39	3	2900
+50	39	2	2595
+51	39	2	2595
+52	40	3	2900
+53	40	2	2595
+54	40	3	2900
+55	40	2	2595
+56	41	2	19999
+57	41	5	59999
+58	41	6	249999
+59	41	2	19999
+60	41	2	19999
+61	41	3	49999
+62	42	2	19999
+63	42	1	49999
+64	42	1	49999
+65	43	3	49999
+66	43	3	49999
+67	43	3	49999
+68	43	3	49999
+69	43	2	19999
+70	44	3	49999
+71	43	2	19999
 \.
 
 
@@ -298,6 +338,20 @@ COPY public.carts ("cartId", "createdAt") FROM stdin;
 28	2020-09-29 13:26:51.711794-07
 29	2020-09-29 22:34:49.132022-07
 30	2020-09-30 12:48:47.804499-07
+31	2020-09-30 16:20:27.685162-07
+32	2020-09-30 16:26:13.826612-07
+33	2020-09-30 16:26:48.400266-07
+34	2020-09-30 16:29:12.099937-07
+35	2020-09-30 16:31:38.381304-07
+36	2020-09-30 16:37:33.705462-07
+37	2020-09-30 19:21:41.567267-07
+38	2020-09-30 19:23:04.399209-07
+39	2020-09-30 19:24:19.878602-07
+40	2020-10-04 17:29:00.271917-07
+41	2020-10-16 03:00:59.161275-07
+42	2020-10-16 12:22:42.409959-07
+43	2020-10-21 18:26:45.871604-07
+44	2020-10-22 03:27:48.517654-07
 \.
 
 
@@ -306,6 +360,17 @@ COPY public.carts ("cartId", "createdAt") FROM stdin;
 --
 
 COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", "createdAt") FROM stdin;
+1	31	daniel	000000000	123 hello	2020-09-30 16:20:36.798573-07
+2	31	daniel	000000000	123 hello	2020-09-30 16:24:47.790787-07
+3	32	daniel	000000000	123 hello	2020-09-30 16:26:30.34666-07
+4	33	daniel	000000000	123 hello	2020-09-30 16:26:50.700247-07
+5	34	daniel	000000000	123 hello	2020-09-30 16:29:13.78389-07
+6	35	daniel	000000000	123 hello	2020-09-30 16:31:40.789947-07
+7	30	Daniel Lee	qwe	124	2020-09-30 19:18:07.008573-07
+8	37	Daniel	1234	Hello	2020-09-30 19:22:31.408715-07
+9	38	Yo	000	Hi	2020-09-30 19:23:17.02718-07
+10	39	1	2	3	2020-09-30 19:40:42.167465-07
+11	43	1	2	3	2020-10-22 03:40:36.982527-07
 \.
 
 
@@ -314,12 +379,12 @@ COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", 
 --
 
 COPY public.products ("productId", name, price, image, "shortDescription", "longDescription") FROM stdin;
-1	Shake Weight	2999	/images/shake-weight.jpg	Dynamic Inertia technology ignites muscles in arms, shoulders, and chest.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock.\\nAesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-2	ShamWow	2595	/images/shamwow.jpg	It's like a chamois, towel, and sponge, all in one! Soaks up to 10x it's weight in any liquid!	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock.\\nAesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-3	Snuggie	2900	/images/snuggie.jpg	Super-Soft Fleece with pockets! One Size fits all Adults! Keeps you Warm & Your Hands-Free!	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock.\\nAesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-4	Wax Vac	999	/images/wax-vac.jpg	Gentle way to remove ear wax. Safe and hygienic. Reduces the risk of painful infections.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock.\\nAesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-5	Ostrich Pillow	9900	/images/ostrich-pillow.jpg	Create your own snugly space in the world and feel-good anywhere with the ultimate cocoon pillow.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock.\\nAesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-6	Tater Mitts	830	/images/tater-mitts.jpg	8 Seconds is all you need with Tater Mitts. Quickly and easily prepare all your favorite potato dishes with Tater Mitts.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock.\\nAesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
+1	Sennheiser HD660S	49999	/images/hd660s.jpg	Sennheiser’s new HD 660S is the ideal open, dynamic headphone for the passionate audiophile.	The new HD 660 S lets you enjoy sophisticated audiophile sound in even more listening situations.\nThe successor of the legendary HD 650 excels with the improved performance of its new transducer design. Thanks to its lower impedance, it delivers reference-class sound also when connected to hi-res mobile players, thus offering much greater versatility. The HD 660 S is an elegantly designed piece of high-quality engineering that indulges the demanding listener with aural precision and great wearing comfort.
+2	Sennheiser HD560S	19999	/images/hd560s.jpg	With linear acoustics, and smooth gratifying bass performance, the HD 560S was crafted for the analytical audio enthusiast.	The HD 560S transducers are specifically tuned for accuracy, offering dependable A/B comparisons of components, mixes, and media formats. The entire frequency range is honest, complemented by smooth, deep bass extension that reveals what nearfield loudspeakers often struggle to reproduce—especially between 20 and 50 Hz. The 120 ohm transducer is all-new, featuring a specialized polymer blend in its membrane for linear excursion and improved brilliance above 10 Hz. The drive magnet offers highly efficient power while its sophisticated damping system manages ventilation—this combination yields deeper bass while mitigating the distortion that otherwise impacts clarity—a difference only the most discerning listeners can appreciate. Whether grading a new hi-resolution master or revisiting a vintage audiophile preamp the HD 560S offers a fatigue-free listen that you can depend on.
+3	HiFiMAN Sundara	49999	/images/sundara.jpg	The Sanskrit word “Sundara” literally means “Beautiful” and these headphones fits this description in every way.	Ultra-fine Diaphragm All New Planar Headphone Inherited from Hi-Fi man’s Advanced Technology Featuring Newly Developed Diaphragm that is 80% Thinner than the HE400 Series Resulting in a Wider Frequency Response, Faster and More Detailed Hybrid Headband Design With the weight spreading strap for outstanding comfort but with a more fashion conscious look with its sleek and sumptuous matte black finish. Form Follows Function With its all metal headband the SUNDARA is built to take the rigors of urban street life. The SUNDARA is as tough as it is beautiful. New 3. 5mm Headphone connector for enhanced durability Pocket Powered Performance The slim line Supermini is the perfect on the partner for the SUNDARA. The Supermini with its abundance of audio power output and the SUNDARA’s grace and poise makes them the velvet glove over a marble fist.
+4	Philips SHP9500	7499	/images/shp9500.jpg	Open-back design with spacious sound. Ideal for listening to your favorite music everyday at home.	Enjoy an authentic audio experience in comfort! The Philips Performance SHP9500 headphones feature high-precision, acoustically-angled 50mm speaker drivers and exclusive open-back architecture, delivering clear and pristine HiFi sound for the ultimate listening experience. Deluxe breathable ear-pads and cushioned headband let you wear and listen all day long with little fatigue.
+6	ZMFheadphones Verite	249999	/images/verite.jpg	Enjoy your own personal audio Vérité. 	Vérité is a term often used in film and television as a style that emphasizes reality, naturalism, and a sense of truth. With the Vérité, ZMF has created a headphone that brings the ultimate truth to audio.  With the utmost speed, accuracy, and heightened dynamic range, the Vérité will immerse the listener in a truly revealing audio eden. With an all new Beryllium coated PEN driver unique to ZMF, a featherweight magnesium chassis, and our most complex acoustic design yet, the Vérité gives you everything you’ve ever wanted from an open, full sized headphone.
+5	Beyerdynamic DT 1990 Pro	59999	/images/dt1990pro.jpg	Uncompromising benchmark-setting studio headphones for listening, mixing and mastering.	The DT 1990 Pro reference headphones combine these decades of expertise in headphone technology with the latest Tesla driver technology in an open-back design. Thanks to its high-resolution and well-balanced sound The DT 1990 Pro sets new standards, Not least in terms of design and workmanship. As with all Beyer dynamic professional studio Headphones, The DT 1990 Pro is also handcrafted in Germany. Backed by high-quality materials and meticulous workmanship, This high-end product is a long-term investment. Together with an ingenious open-back design, The high-resolution Tesla drivers ensure a wide, dynamic and extremely natural stereo image. Titanium-coated acoustic fabric and carefully selected precision-woven textiles round off the balanced sound quality. Natural and exceptionally Spatial Sound is achieved thanks to the open-back design. The optimized Spatial Sound reproduction makes the DT 1990 Pro headphones a reliable reference for mixing and mastering applications as well as for critical listening. Choose between a well-balanced sound or Analytical sound thanks to replaceable velour ear pads. Both ear pad variants are included to finish off this impeccable studio headphone package.
 \.
 
 
@@ -327,21 +392,21 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 31, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 71, true);
 
 
 --
 -- Name: carts_cartId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."carts_cartId_seq"', 30, true);
+SELECT pg_catalog.setval('public."carts_cartId_seq"', 44, true);
 
 
 --
 -- Name: orders_orderId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."orders_orderId_seq"', 1, false);
+SELECT pg_catalog.setval('public."orders_orderId_seq"', 11, true);
 
 
 --
