@@ -2,6 +2,10 @@
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+.cursor-pointer{
+  cursor: pointer;
+}
+
 .navcolor {
   background-color: #323232;
 }
@@ -61,11 +65,34 @@
   font-weight: 500;
 }
 
+.banner-container{
+  position: relative;
+}
+
+.banner-text{
+  width: 15%;
+  color: white;
+  position: absolute;
+  top: 30%;
+  left: 18%;
+}
+
+.hd560s-title{
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 3.5vw;
+  text-shadow: 1px 1px black;
+}
+.hd560s-text{
+  font-size: 2vw;
+  font-family: 'Open Sans Condensed', sans-serif;
+  text-shadow: 1px 1px black;
+}
 
 @media only screen and (min-width: 576px) and (max-width: 767.98px) {
   .product-list {
     max-width: 700px;
   }
+
 }
 
 @media only screen and (min-width: 768px) {

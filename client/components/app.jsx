@@ -102,7 +102,7 @@ export default class App extends React.Component {
       case 'catalog':
         currentPage = (
           <React.Fragment>
-            <Banner />
+            <Banner setView={this.setView}/>
             <ProductList setView={this.setView} />
           </React.Fragment>
         );
