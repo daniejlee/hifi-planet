@@ -88,13 +88,13 @@
 .hd560s-title{
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 3.5vw;
-  text-shadow: 1px 1px black;
+  text-shadow: 2px 2px black;
 }
 
 .hd560s-text{
   font-size: 1.9vw;
   font-family: 'Open Sans Condensed', sans-serif;
-  text-shadow: 1px 1px black;
+  text-shadow: 1.5px 2px black;
   line-height: 1.2;
 }
 
@@ -102,9 +102,4 @@
   .product-list {
     max-width: 700px;
   }
-
-}
-
-@media only screen and (min-width: 768px) {
-
 }

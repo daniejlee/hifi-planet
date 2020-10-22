@@ -5,6 +5,7 @@ import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
 import CheckoutForm from './checkout-form';
 import Banner from './banner';
+import Disclaimer from './disclaimer';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,13 +15,15 @@ export default class App extends React.Component {
         name: 'catalog',
         params: {}
       },
-      cart: []
+      cart: [],
+      showModal: true
     };
 
     this.setView = this.setView.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
     this.getTotal = this.getTotal.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   componentDidMount() {
@@ -61,7 +64,13 @@ export default class App extends React.Component {
       .then(data => {
         const newCart = this.state.cart.slice();
         newCart.push(data);
-        this.setState({ cart: newCart });
+        this.setState({
+          cart: newCart,
+          view: {
+            name: 'cart',
+            params: {}
+          }
+        });
       })
       .catch(error => {
         console.error(error);
@@ -96,6 +105,12 @@ export default class App extends React.Component {
     }
   }
 
+  toggleModal(toggle) {
+    this.setState({
+      showModal: toggle
+    });
+  }
+
   render() {
     let currentPage;
     switch (this.state.view.name) {
@@ -118,7 +133,12 @@ export default class App extends React.Component {
         break;
     }
     return (
+
       <div>
+        {
+          this.state.showModal &&
+          <Disclaimer toggleModal={this.toggleModal} showModal={this.state.showModal}/>
+        }
         <Header setView={this.setView} cartItemCount={this.state.cart.length}/>
         {currentPage}
       </div>
