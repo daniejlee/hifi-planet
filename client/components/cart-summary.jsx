@@ -24,14 +24,14 @@ export default class CartSummary extends React.Component {
       return (<CartSummaryItem key={index} cartItem={cartItem}/>);
     });
     const itemTotal = (
-      <div key="footer" className="row justify-content-between mt-4 mb-5">
+      <div key="footer" className="row justify-content-between align-items-center mt-4 mb-5">
         <div className="col">
           <h5>Item Total
             <span className="cart-total"> ${(this.props.getTotal() / 100).toLocaleString()}</span>
           </h5>
         </div>
         <div className="col text-right">
-          <button type="submit" id="checkout" className="btn btn-primary" onClick={this.setView}>Checkout</button>
+          <button type="submit" id="checkout" className="btn btn-dark btn-lg" onClick={this.setView}>Checkout</button>
         </div>
       </div>
     );

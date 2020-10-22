@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 
-export default class Disclaimer extends React.Component {
+export default class CheckoutDisclaimer extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
@@ -20,10 +20,10 @@ export default class Disclaimer extends React.Component {
         centered
       >
         <Modal.Header>
-          <Modal.Title>DISCLAIMER</Modal.Title>
+          <Modal.Title>WARNING</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          This website is made for demonstration purposes only. No real purchases will be made.
+            Please do NOT enter any real personal information. No purchases on this site will be made. Thank you.
         </Modal.Body>
         <Modal.Footer>
           <button className="btn btn-secondary" onClick={this.handleClick}>I Understand</button>

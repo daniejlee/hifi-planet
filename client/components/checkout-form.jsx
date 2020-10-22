@@ -1,4 +1,5 @@
 import React from 'react';
+import CheckoutDisclaimer from './checkout-disclaimer';
 
 export default class CheckoutForm extends React.Component {
   constructor(props) {
@@ -6,11 +7,13 @@ export default class CheckoutForm extends React.Component {
     this.state = {
       name: '',
       creditCard: '',
-      shippingAddress: ''
+      shippingAddress: '',
+      showModal: true
     };
     this.setView = this.setView.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   setView() {
@@ -29,6 +32,12 @@ export default class CheckoutForm extends React.Component {
       name: '',
       creditCard: '',
       shippingAddress: ''
+    });
+  }
+
+  toggleModal(toggle) {
+    this.setState({
+      showModal: toggle
     });
   }
 
@@ -63,11 +72,15 @@ export default class CheckoutForm extends React.Component {
               <div className="ml-0 mt-2" style={{ cursor: 'pointer' }} onClick={this.setView}>&lt; Continue Shopping</div>
             </div>
             <div className="col text-right">
-              <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Place Order</button>
+              <button type="submit" className="btn btn-dark" onClick={this.handleSubmit}>Place Order</button>
             </div>
           </div>
 
         </form>
+        {
+          this.state.showModal &&
+          <CheckoutDisclaimer toggleModal={this.toggleModal} showModal={this.state.showModal} />
+        }
       </div>
     );
   }
