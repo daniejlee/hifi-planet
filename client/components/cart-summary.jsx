@@ -24,7 +24,7 @@ export default class CartSummary extends React.Component {
       return (<CartSummaryItem key={index} cartItem={cartItem}/>);
     });
     const itemTotal = (
-      <div key="footer" className="row justify-content-between align-items-center mt-4 mb-5">
+      <div key="footer" className="row justify-content-between align-items-center mt-4 mb-5 cart-summary-total">
         <div className="col">
           <h5>Item Total
             <span className="cart-total"> ${(this.props.getTotal() / 100).toLocaleString()}</span>
