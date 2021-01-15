@@ -50,6 +50,7 @@ export default class ProductDetails extends React.Component {
               </div>
             </div>
             <div className="row mt-5 px-3">{product.longDescription}</div>
+            <div className="specifications mt-5">+Specifications/See More</div>
           </div>
         </div>
       );
