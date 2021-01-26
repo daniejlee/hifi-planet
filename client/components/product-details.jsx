@@ -35,7 +35,7 @@ export default class ProductDetails extends React.Component {
 
   showMore() {
     this.setState({
-      expanded: true
+      expanded: !this.state.expanded
     });
   }
 
@@ -59,22 +59,16 @@ export default class ProductDetails extends React.Component {
             </div>
             <div className="row mt-5 px-3">{product.longDescription}</div>
 
-            {/* <div className="hidden-content mt-5" onClick={this.showMore}>+Specifications/See More</div> */}
-            {/* <div className="specifications">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor labore explicabo assumenda quibusdam quaerat rem,
-              architecto illum? Necessitatibus possimus illum, hic, quos obcaecati itaque ad magni minima animi atque et?
-            </div> */}
-
             {
               this.state.expanded
                 ? <>
-                  <div className="hidden-content mt-5" onClick={this.showMore}>- Specifications/See Less</div>
+                  <div className="show-more mt-5" onClick={this.showMore}>- Specifications/See Less</div>
                   <div className="specifications">
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor labore explicabo assumenda quibusdam quaerat rem,
-                      architecto illum? Necessitatibus possimus illum, hic, quos obcaecati itaque ad magni minima animi atque et?
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor labore explicabo assumenda quibusdam quaerat rem,
+                        architecto illum? Necessitatibus possimus illum, hic, quos obcaecati itaque ad magni minima animi atque et?
                   </div>
                 </>
-                : <div className="hidden-content mt-5" onClick={this.showMore}>+ Specifications/See More</div>
+                : <div className="show-more mt-5" onClick={this.showMore}>+ Specifications/See More</div>
             }
           </div>
         </div>
