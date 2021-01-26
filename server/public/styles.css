@@ -98,6 +98,9 @@
   line-height: 1.2;
 }
 
+.show-more {
+  cursor: pointer;
+}
 
 @media only screen and (min-width: 768px) and (max-width: 992px){
   .detail-image{
