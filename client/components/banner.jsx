@@ -13,7 +13,7 @@ export default class Banner extends React.Component {
 
   render() {
     return (
-      <Carousel interval={6000}>
+      <Carousel interval={5000}>
         <Carousel.Item>
           <img className="d-block w-100" src="/images/sundara-banner.jpg" useMap="#sundara" />
           <map name="sundara">
