@@ -4,10 +4,12 @@ export default class ProductDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: null
+      product: null,
+      expanded: false
     };
     this.setView = this.setView.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.showMore = this.showMore.bind(this);
   }
 
   componentDidMount() {
@@ -31,6 +33,12 @@ export default class ProductDetails extends React.Component {
     this.props.addToCart(this.props.params);
   }
 
+  showMore() {
+    this.setState({
+      expanded: true
+    });
+  }
+
   render() {
     if (this.state.product) {
       const product = this.state.product;
@@ -50,11 +58,24 @@ export default class ProductDetails extends React.Component {
               </div>
             </div>
             <div className="row mt-5 px-3">{product.longDescription}</div>
-            <div className="hidden-content mt-5">+Specifications/See More</div>
-            <div className="specifications">
+
+            {/* <div className="hidden-content mt-5" onClick={this.showMore}>+Specifications/See More</div> */}
+            {/* <div className="specifications">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor labore explicabo assumenda quibusdam quaerat rem,
               architecto illum? Necessitatibus possimus illum, hic, quos obcaecati itaque ad magni minima animi atque et?
-            </div>
+            </div> */}
+
+            {
+              this.state.expanded
+                ? <>
+                  <div className="hidden-content mt-5" onClick={this.showMore}>- Specifications/See Less</div>
+                  <div className="specifications">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor labore explicabo assumenda quibusdam quaerat rem,
+                      architecto illum? Necessitatibus possimus illum, hic, quos obcaecati itaque ad magni minima animi atque et?
+                  </div>
+                </>
+                : <div className="hidden-content mt-5" onClick={this.showMore}>+ Specifications/See More</div>
+            }
           </div>
         </div>
       );
@@ -63,3 +84,9 @@ export default class ProductDetails extends React.Component {
     }
   }
 }
+
+// {
+//   cart.length > 0
+//   ? [cartList, itemTotal]
+//   : (<div className="empty-cart mt-4">Your Shopping Cart is empty</div>)
+// }
