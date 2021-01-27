@@ -63,10 +63,13 @@ export default class ProductDetails extends React.Component {
               this.state.expanded
                 ? <>
                   <div className="show-more mt-5" onClick={this.showMore}>- Specifications/See Less</div>
-                  <div className="specifications">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor labore explicabo assumenda quibusdam quaerat rem,
-                        architecto illum? Necessitatibus possimus illum, hic, quos obcaecati itaque ad magni minima animi atque et?
-                  </div>
+                  <ul className="specifications">
+                    <li>Impedance: 120 Ω</li>
+                    <li>Frequency: 6 Hz to 38 kHz (-10 dB)</li>
+                    <li>Sound Pressure: 110 dB (1 kHz / 1 V RMS)</li>
+                    <li>Jack plug: 6.35 mm with 3.5 mm adapter</li>
+                    <li>Weight: 240 g</li>
+                  </ul>
                 </>
                 : <div className="show-more mt-5" onClick={this.showMore}>+ Specifications/See More</div>
             }
